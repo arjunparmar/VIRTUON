@@ -26,7 +26,8 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 15. [Understanding Semantic Segmentation with UNET](https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47)
 16. [U-net for image segmentation](https://www.youtube.com/playlist?list=PLZsOBAyNTZwbR08R959iCvYT3qzhxvGOE)
 17. [Image segmentation](https://www.tensorflow.org/tutorials/images/segmentation?fbclid=IwAR3qKtMDzSgMrk_hjxxtC1987bU8egjvEuVJkCXOdZZYNfkOezxt1z1Ra8I)
-18. [ModaNet: A Large-scale Street Fashion Dataset with Polygon Annotations](https://arxiv.org/pdf/1807.01394.pdf?fbclid=IwAR0mPKOx0DThGV49lZQcgBUbjClg0QoVB1tQyV2d4UfKw6P0NPMLWXbM-FE)
+18. [ModaNet: A Large-scale Street Fashion Dataset with Polygon Annotations](https://arxiv.org/pdf/1807.01394.pdf?fbclid=IwAR0mPKOx0DThGV49lZQcgBUbjClg0QoVB1tQyV2d4UfKw6P0NPMLWXbM-FE) 
+19. [Difference between AlexNet, VGGNet, ResNet, and Inception](https://towardsdatascience.com/the-w3h-of-alexnet-vggnet-resnet-and-inception-7baaaecccc96)
 
 ### Dataset References
 1. [Large-scale Fashion (DeepFashion) Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html?fbclid=IwAR3mq2jq2txLmu9DLZjENQGt7dHwHpjyq7vuIuwey_XZkkkLZgrGUeEBIYo)
