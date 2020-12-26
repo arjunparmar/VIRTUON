@@ -35,3 +35,9 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 2. [Fashioninsta Unannotated Dataset](https://github.com/grahamar/fashion_dataset/tree/master/fashionista?fbclid=IwAR0B0Awnl3LcPpwjxQXG0Pyxdfxp8GED_Cng_7h2yNVcCLRDXx6mDenE-Lk)
 3. [iMaterialist (Fashion) 2019 at FGVC6](https://www.kaggle.com/c/imaterialist-fashion-2019-FGVC6/data?select=label_descriptions.json&fbclid=IwAR3r8kF18ZKKXQGApDFcHPToM_0vYERgDIMm57eTf1-Z1ntilaU6t2fbQec)
 4. [Clothing Segmentation](https://github.com/IzPerfect/Clothing-Segmentation?fbclid=IwAR1z-BeIvcVRv38hrnUqdaqkjgVwGq_HUKqhrKw79aMI6FEhHEd5M78s9TM)
+5. [Look Into Person Dataset](http://sysu-hcp.net/lip/?fbclid=IwAR1N_OLS6vCRJfraIimiSnfiYUkv0d6nUEKu1vAv2yQPb-qcR2BklI4bKuc)
+
+### Timeline
+Till Now- We have completed the image segmentation, pose detection part. 
+Till 3 jan- We would complete our project implementation. 
+Till 10 jan- We would complete Deployment part of our project.
