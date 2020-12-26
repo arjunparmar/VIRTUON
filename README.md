@@ -38,6 +38,6 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 5. [Look Into Person Dataset](http://sysu-hcp.net/lip/?fbclid=IwAR1N_OLS6vCRJfraIimiSnfiYUkv0d6nUEKu1vAv2yQPb-qcR2BklI4bKuc)
 
 ### Timeline
-Till Now- We have completed the image segmentation, pose detection part. 
-Till 3 jan- We would complete our project implementation. 
+Till Now- We have completed the image segmentation, pose detection part.<br /> 
+Till 3 jan- We would complete our project implementation.<br />
 Till 10 jan- We would complete Deployment part of our project.
