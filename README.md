@@ -3,6 +3,17 @@
 
 ⇥The objective is to transfer garments across images of people with arbitrary body pose, shape and clothing. Garment transfer is a challenging task that requires (i) disentangling the features of the clothing from the body pose and shape and (ii) realistic synthesis of the garment texture on the new body.
 
+## Dataset 
+[Google Drive link]()
+
+
+<summary><b> Courses</b></summary>
+
+- Course 1 - [Neural Networks and Deep learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)
+- Course 2 - [Improving Deep Neural Networks](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning)
+- Course 3 - [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning)
+
+
 # Resources
 
 ### Research Papers and References
@@ -31,6 +42,7 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 20. [Convolutions and Backpropagations](https://medium.com/@pavisj/convolutions-and-backpropagations-46026a8f5d2c)
 21. [Image Segmentation Guide](fritz.ai/image-segmentation/)
 22. [Residual Block](https://towardsdatascience.com/understand-and-implement-resnet-50-with-tensorflow-2-0-1190b9b52691)
+23. [Image Segmentation Keras : Implementation of Segnet, FCN, UNet, PSPNet and other models in Keras](https://github.com/divamgupta/image-segmentation-keras)
 ### Dataset References
 1. [Large-scale Fashion (DeepFashion) Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html?fbclid=IwAR3mq2jq2txLmu9DLZjENQGt7dHwHpjyq7vuIuwey_XZkkkLZgrGUeEBIYo)
 2. [Fashioninsta Unannotated Dataset](https://github.com/grahamar/fashion_dataset/tree/master/fashionista?fbclid=IwAR0B0Awnl3LcPpwjxQXG0Pyxdfxp8GED_Cng_7h2yNVcCLRDXx6mDenE-Lk)
