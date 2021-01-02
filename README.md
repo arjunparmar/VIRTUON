@@ -3,16 +3,6 @@
 
 ⇥The objective is to transfer garments across images of people with arbitrary body pose, shape and clothing. Garment transfer is a challenging task that requires (i) disentangling the features of the clothing from the body pose and shape and (ii) realistic synthesis of the garment texture on the new body.
 
-## Dataset 
-[Google Drive link]()
-
-
-<summary><b> Courses</b></summary>
-
-- Course 1 - [Neural Networks and Deep learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)
-- Course 2 - [Improving Deep Neural Networks](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning)
-- Course 3 - [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning)
-
 
 # Resources
 
@@ -49,6 +39,15 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 3. [iMaterialist (Fashion) 2019 at FGVC6](https://www.kaggle.com/c/imaterialist-fashion-2019-FGVC6/data?select=label_descriptions.json&fbclid=IwAR3r8kF18ZKKXQGApDFcHPToM_0vYERgDIMm57eTf1-Z1ntilaU6t2fbQec)
 4. [Clothing Segmentation](https://github.com/IzPerfect/Clothing-Segmentation?fbclid=IwAR1z-BeIvcVRv38hrnUqdaqkjgVwGq_HUKqhrKw79aMI6FEhHEd5M78s9TM)
 5. [Look Into Person Dataset](http://sysu-hcp.net/lip/?fbclid=IwAR1N_OLS6vCRJfraIimiSnfiYUkv0d6nUEKu1vAv2yQPb-qcR2BklI4bKuc)
+
+<summary><b> Courses</b></summary>
+
+- Course 1 - [Neural Networks and Deep learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)
+- Course 2 - [Improving Deep Neural Networks](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning)
+- Course 3 - [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning)
+
+## Dataset 
+[Google Drive link]()
 
 ### Timeline
 Till Now- We have completed the image segmentation, pose detection part.<br /> 
