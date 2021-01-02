@@ -40,7 +40,7 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 4. [Clothing Segmentation](https://github.com/IzPerfect/Clothing-Segmentation?fbclid=IwAR1z-BeIvcVRv38hrnUqdaqkjgVwGq_HUKqhrKw79aMI6FEhHEd5M78s9TM)
 5. [Look Into Person Dataset](http://sysu-hcp.net/lip/?fbclid=IwAR1N_OLS6vCRJfraIimiSnfiYUkv0d6nUEKu1vAv2yQPb-qcR2BklI4bKuc)
 
-<summary><b> Courses</b></summary>
+## Courses
 
 - Course 1 - [Neural Networks and Deep learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)
 - Course 2 - [Improving Deep Neural Networks](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning)
