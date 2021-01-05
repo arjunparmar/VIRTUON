@@ -33,7 +33,7 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 21. [Image Segmentation Guide](fritz.ai/image-segmentation/)
 22. [Residual Block](https://towardsdatascience.com/understand-and-implement-resnet-50-with-tensorflow-2-0-1190b9b52691)
 23. [Image Segmentation Keras : Implementation of Segnet, FCN, UNet, PSPNet and other models in Keras](https://github.com/divamgupta/image-segmentation-keras)
-24. [RoI pooling in TensorFlow](https://github.com/deepsense-ai/roi-pooling)
+24. [RoI pooling in TensorFlow(Per-Trained library)](https://github.com/deepsense-ai/roi-pooling)
 25. [Implementing RoI Pooling in TensorFlow + Keras](https://medium.com/xplore-ai/implementing-attention-in-tensorflow-keras-using-roi-pooling-992508b6592b)
 
 ### Dataset References
