@@ -1,12 +1,11 @@
-import numpy as np
 import torch
 import torch.nn as nn
 from torchvision import models
 import time
-from Data_Gen import CPDataset,CPDataLoader
 import torch.nn.functional as F
-from utils import save_images, save_checkpoint, load_checkpoint, board_add_images, board_add_image, tensor_for_board, tensor_list_for_board
+from utils import save_checkpoint, board_add_images, save_images
 import os
+from losses import VGGLoss
 
 class Vgg19(nn.Module):
     def __init__(self, requires_grad=False):
@@ -40,25 +39,6 @@ class Vgg19(nn.Module):
         out = [h_relu1, h_relu2, h_relu3, h_relu4, h_relu5]
         return out
 
-
-class VGGLoss(nn.Module):
-    def __init__(self, layids=None):
-        super(VGGLoss, self).__init__()
-        self.vgg = Vgg19()
-        self.vgg.cuda()
-        self.criterion = nn.L1Loss()
-        self.weights = [1.0/32, 1.0/16, 1.0/8, 1.0/4, 1.0]
-        self.layids = layids
-
-    def forward(self, x, y):
-        x_vgg, y_vgg = self.vgg(x), self.vgg(y)
-        loss = 0
-        if self.layids is None:
-            self.layids = list(range(len(x_vgg)))
-        for i in self.layids:
-            loss += self.weights[i] * \
-                self.criterion(x_vgg[i], y_vgg[i].detach())
-        return loss
 
 class UnetGenerator(nn.Module):
     def __init__(self, input_nc = 26, output_nc = 4, num_downs = 6, ngf=64,
@@ -202,3 +182,68 @@ def train_tom(train_loader, model, board, lr = 0.0001, betas=(0.5, 0.999), keeps
         if (step+1) % save_count == 0:
             save_checkpoint(model, os.path.join(
                 checkpoint_dir, name, 'step_%06d.pth' % (step+1)))
+
+def test_tom( test_loader, model, board, checkpoint = "", result_dir = "result", name = "TOM", datamode = "Test", display_count = 100):
+    model.cuda()
+    model.eval()
+
+    base_name = os.path.basename(checkpoint)
+    # save_dir = os.path.join(result_dir, base_name, datamode)
+    save_dir = os.path.join(result_dir, name, datamode)
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    try_on_dir = os.path.join(save_dir, 'try-on')
+    if not os.path.exists(try_on_dir):
+        os.makedirs(try_on_dir)
+    p_rendered_dir = os.path.join(save_dir, 'p_rendered')
+    if not os.path.exists(p_rendered_dir):
+        os.makedirs(p_rendered_dir)
+    m_composite_dir = os.path.join(save_dir, 'm_composite')
+    if not os.path.exists(m_composite_dir):
+        os.makedirs(m_composite_dir)
+    im_pose_dir = os.path.join(save_dir, 'im_pose')
+    if not os.path.exists(im_pose_dir):
+        os.makedirs(im_pose_dir)
+    shape_dir = os.path.join(save_dir, 'shape')
+    if not os.path.exists(shape_dir):
+        os.makedirs(shape_dir)
+    im_h_dir = os.path.join(save_dir, 'im_h')
+    if not os.path.exists(im_h_dir):
+        os.makedirs(im_h_dir)  # for test data
+
+    print('Dataset size: %05d!' % (len(test_loader.dataset)), flush=True)
+    for step, inputs in enumerate(test_loader.data_loader):
+        iter_start_time = time.time()
+
+        im_names = inputs['im_name']
+        im = inputs['image'].cuda()
+        im_pose = inputs['pose_image']
+        im_h = inputs['head']
+        shape = inputs['shape']
+
+        agnostic = inputs['agnostic'].cuda()
+        c = inputs['cloth'].cuda()
+        cm = inputs['cloth_mask'].cuda()
+
+        # outputs = model(torch.cat([agnostic, c], 1))  # CP-VTON
+        outputs = model(torch.cat([agnostic, c, cm], 1))  # CP-VTON+
+        p_rendered, m_composite = torch.split(outputs, 3, 1)
+        p_rendered = F.tanh(p_rendered)
+        m_composite = F.sigmoid(m_composite)
+        p_tryon = c * m_composite + p_rendered * (1 - m_composite)
+
+        visuals = [[im_h, shape, im_pose],
+                   [c, 2*cm-1, m_composite],
+                   [p_rendered, p_tryon, im]]
+
+        save_images(p_tryon, im_names, try_on_dir)
+        save_images(im_h, im_names, im_h_dir)
+        save_images(shape, im_names, shape_dir)
+        save_images(im_pose, im_names, im_pose_dir)
+        save_images(m_composite, im_names, m_composite_dir)
+        save_images(p_rendered, im_names, p_rendered_dir)  # For test data
+
+        if (step+1) % display_count == 0:
+            board_add_images(board, 'combine', visuals, step+1)
+            t = time.time() - iter_start_time
+            print('step: %8d, time: %.3f' % (step+1, t), flush=True)
