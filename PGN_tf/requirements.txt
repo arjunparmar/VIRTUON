@@ -1,0 +1,5 @@
+tensorflow-gpu>=1.10.0
+numpy
+scipy
+pillow
+opencv-python
