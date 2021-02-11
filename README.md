@@ -3,6 +3,7 @@
 
 ⇥The objective is to transfer garments across images of people with arbitrary body pose, shape and clothing. Garment transfer is a challenging task that requires (i) disentangling the features of the clothing from the body pose and shape and (ii) realistic synthesis of the garment texture on the new body.
 
+
 # Resources
 
 ### Research Papers and References
@@ -31,12 +32,25 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 20. [Convolutions and Backpropagations](https://medium.com/@pavisj/convolutions-and-backpropagations-46026a8f5d2c)
 21. [Image Segmentation Guide](fritz.ai/image-segmentation/)
 22. [Residual Block](https://towardsdatascience.com/understand-and-implement-resnet-50-with-tensorflow-2-0-1190b9b52691)
+23. [Image Segmentation Keras : Implementation of Segnet, FCN, UNet, PSPNet and other models in Keras](https://github.com/divamgupta/image-segmentation-keras)
+24. [RoI pooling in TensorFlow(Per-Trained library)](https://github.com/deepsense-ai/roi-pooling)
+25. [Implementing RoI Pooling in TensorFlow + Keras](https://medium.com/xplore-ai/implementing-attention-in-tensorflow-keras-using-roi-pooling-992508b6592b)
+
 ### Dataset References
 1. [Large-scale Fashion (DeepFashion) Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html?fbclid=IwAR3mq2jq2txLmu9DLZjENQGt7dHwHpjyq7vuIuwey_XZkkkLZgrGUeEBIYo)
 2. [Fashioninsta Unannotated Dataset](https://github.com/grahamar/fashion_dataset/tree/master/fashionista?fbclid=IwAR0B0Awnl3LcPpwjxQXG0Pyxdfxp8GED_Cng_7h2yNVcCLRDXx6mDenE-Lk)
 3. [iMaterialist (Fashion) 2019 at FGVC6](https://www.kaggle.com/c/imaterialist-fashion-2019-FGVC6/data?select=label_descriptions.json&fbclid=IwAR3r8kF18ZKKXQGApDFcHPToM_0vYERgDIMm57eTf1-Z1ntilaU6t2fbQec)
 4. [Clothing Segmentation](https://github.com/IzPerfect/Clothing-Segmentation?fbclid=IwAR1z-BeIvcVRv38hrnUqdaqkjgVwGq_HUKqhrKw79aMI6FEhHEd5M78s9TM)
 5. [Look Into Person Dataset](http://sysu-hcp.net/lip/?fbclid=IwAR1N_OLS6vCRJfraIimiSnfiYUkv0d6nUEKu1vAv2yQPb-qcR2BklI4bKuc)
+
+## Courses
+
+- Course 1 - [Neural Networks and Deep learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)
+- Course 2 - [Improving Deep Neural Networks](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning)
+- Course 3 - [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning)
+
+## Dataset 
+[Google Drive link]()
 
 ### Timeline
 Till Now- We have completed the image segmentation, pose detection part.<br /> 
