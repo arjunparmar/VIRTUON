@@ -1,0 +1,4 @@
+Model/grapy/data/models/CIHP_trained.pth
+Model/openpose/model_pose/body_pose_model.pth
+Model/virtuon/PreTrainedModels/GMM/PreTrainedGMM.pth
+Model/virtuon/PreTrainedModels/TOM/PreTrainedTOM.pth
