@@ -36,6 +36,7 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 24. [RoI pooling in TensorFlow(Per-Trained library)](https://github.com/deepsense-ai/roi-pooling)
 25. [Implementing RoI Pooling in TensorFlow + Keras](https://medium.com/xplore-ai/implementing-attention-in-tensorflow-keras-using-roi-pooling-992508b6592b)
 
+
 ### Dataset References
 1. [Large-scale Fashion (DeepFashion) Database](http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html?fbclid=IwAR3mq2jq2txLmu9DLZjENQGt7dHwHpjyq7vuIuwey_XZkkkLZgrGUeEBIYo)
 2. [Fashioninsta Unannotated Dataset](https://github.com/grahamar/fashion_dataset/tree/master/fashionista?fbclid=IwAR0B0Awnl3LcPpwjxQXG0Pyxdfxp8GED_Cng_7h2yNVcCLRDXx6mDenE-Lk)
@@ -48,6 +49,9 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 - Course 1 - [Neural Networks and Deep learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)
 - Course 2 - [Improving Deep Neural Networks](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning)
 - Course 3 - [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning)
+
+### Demo Video
+[Facebook post](https://m.facebook.com/groups/1895298930625586/permalink/2071914502964027/)
 
 ## Dataset 
 [Google Drive link]()
