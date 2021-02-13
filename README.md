@@ -4,6 +4,11 @@
 ⇥The objective is to transfer garments across images of people with arbitrary body pose, shape and clothing. Garment transfer is a challenging task that requires (i) disentangling the features of the clothing from the body pose and shape and (ii) realistic synthesis of the garment texture on the new body.
 
 
+![imgonline-com-ua-twotoone-nHcqAwB6EpgjBS](https://user-images.githubusercontent.com/72185267/107857221-12b31800-6e53-11eb-9642-af38591a0338.jpg)
+
+
+
+
 # Resources
 
 ### Research Papers and Blogs
