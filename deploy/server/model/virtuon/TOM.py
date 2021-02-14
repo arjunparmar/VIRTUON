@@ -188,7 +188,7 @@ def train_tom(train_loader, model, board, lr=0.0001, betas=(0.5, 0.999), keepste
                 checkpoint_dir, name, 'step_%06d.pth' % (step + 1)))
 
 
-def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/PreTrainedModels'), result_dir=os.path.abspath('model/output'), name="TOM", model_name = 'PreTrainedTOM',
+def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/PreTrainedModels'), result_dir=os.path.abspath('static'), name="TOM", model_name = 'PreTrainedTOM',
              display_count=100):
     model_path = os.path.join(checkpoint, name, model_name + ".pth")
     load_checkpoint(model, model_path)
@@ -199,26 +199,26 @@ def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/Pre
     base_name = os.path.basename(checkpoint)
     # save_dir = os.path.join(result_dir, base_name, datamode)
     save_dir = result_dir
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
-    try_on_dir = os.path.join(save_dir, 'try-on')
+    # if not os.path.exists(save_dir):
+    #     os.makedirs(save_dir)
+    try_on_dir = os.path.join(save_dir, 'output')
     if not os.path.exists(try_on_dir):
         os.makedirs(try_on_dir)
-    p_rendered_dir = os.path.join(save_dir, 'p_rendered')
-    if not os.path.exists(p_rendered_dir):
-        os.makedirs(p_rendered_dir)
-    m_composite_dir = os.path.join(save_dir, 'm_composite')
-    if not os.path.exists(m_composite_dir):
-        os.makedirs(m_composite_dir)
-    im_pose_dir = os.path.join(save_dir, 'im_pose')
-    if not os.path.exists(im_pose_dir):
-        os.makedirs(im_pose_dir)
-    shape_dir = os.path.join(save_dir, 'shape')
-    if not os.path.exists(shape_dir):
-        os.makedirs(shape_dir)
-    im_h_dir = os.path.join(save_dir, 'im_h')
-    if not os.path.exists(im_h_dir):
-        os.makedirs(im_h_dir)  # for test data
+    # p_rendered_dir = os.path.join(save_dir, 'p_rendered')
+    # if not os.path.exists(p_rendered_dir):
+    #     os.makedirs(p_rendered_dir)
+    # m_composite_dir = os.path.join(save_dir, 'm_composite')
+    # if not os.path.exists(m_composite_dir):
+    #     os.makedirs(m_composite_dir)
+    # im_pose_dir = os.path.join(save_dir, 'im_pose')
+    # if not os.path.exists(im_pose_dir):
+    #     os.makedirs(im_pose_dir)
+    # shape_dir = os.path.join(save_dir, 'shape')
+    # if not os.path.exists(shape_dir):
+    #     os.makedirs(shape_dir)
+    # im_h_dir = os.path.join(save_dir, 'im_h')
+    # if not os.path.exists(im_h_dir):
+    #     os.makedirs(im_h_dir)  # for test data
 
     print('Dataset size: %05d!' % (len(test_loader.dataset)), flush=True)
     for step, inputs in enumerate(test_loader.data_loader):
@@ -246,11 +246,11 @@ def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/Pre
         #            [p_rendered, p_tryon, im]]
 
         save_images(p_tryon, im_names, try_on_dir)
-        save_images(im_h, im_names, im_h_dir)
-        save_images(shape, im_names, shape_dir)
-        save_images(im_pose, im_names, im_pose_dir)
-        save_images(m_composite, im_names, m_composite_dir)
-        save_images(p_rendered, im_names, p_rendered_dir)  # For test data
+        # save_images(im_h, im_names, im_h_dir)
+        # save_images(shape, im_names, shape_dir)
+        # save_images(im_pose, im_names, im_pose_dir)
+        # save_images(m_composite, im_names, m_composite_dir)
+        # save_images(p_rendered, im_names, p_rendered_dir)  # For test data
 
         # if (step + 1) % display_count == 0:
         #     board_add_images(board, 'combine', visuals, step + 1)

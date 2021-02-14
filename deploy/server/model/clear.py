@@ -13,7 +13,7 @@ def clear():
     warp_cloth = glob.glob(os.path.abspath('input/test/test/warp-cloth/*'))
     warp_mask = glob.glob(os.path.abspath('input/test/test/warp-mask/*'))
     try:
-        shutil.rmtree('./model/output')
+        shutil.rmtree('./static/output')
     except:
         pass
 
