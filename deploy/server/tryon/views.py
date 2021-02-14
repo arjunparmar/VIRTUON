@@ -14,12 +14,14 @@ from django.template import RequestContext
 sys.path.append(os.path.abspath('model'))
 from virtuon import virtuon
 from clear import clear
+from pairs import pairs
 
 # Create your views here.
 
 class TryonView(CreateView):
     model = Tryon
     template = "home.html"
+    success_url = "predict.html"
 
 
     def get(self, request):
@@ -40,12 +42,13 @@ class TryonPredict(ListView):
     template = "predict.html"
 
     def get(self, request):
-        # clear()
-        # virtuon()
+        clear()
+        pairs()
+        virtuon()
         # # base_image = Image.open("model/output/p_rendered/demo_1.jpg")
         # # response = HttpResponse(content_type="image/png")
         # # base_image.save(response, "PNG")
-        output = ("output/demo_1.jpg")
+        output = ("output/d0.jpg")
         # template = Template('{{MEDIA_URL}}:{{output}}')
         ctx = {"output": output}
          # img_path = ('model/output/p_rendered/demo_1.jpg')

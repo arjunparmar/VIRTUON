@@ -188,7 +188,7 @@ def train_tom(train_loader, model, board, lr=0.0001, betas=(0.5, 0.999), keepste
                 checkpoint_dir, name, 'step_%06d.pth' % (step + 1)))
 
 
-def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/PreTrainedModels'), result_dir=os.path.abspath('static'), name="TOM", model_name = 'PreTrainedTOM',
+def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/PreTrainedModels'), result_dir=os.path.abspath('media'), name="TOM", model_name = 'PreTrainedTOM',
              display_count=100):
     model_path = os.path.join(checkpoint, name, model_name + ".pth")
     load_checkpoint(model, model_path)
