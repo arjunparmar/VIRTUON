@@ -38,7 +38,7 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
  21. [Implementing RoI Pooling in TensorFlow + Keras](https://medium.com/xplore-ai/implementing-attention-in-tensorflow-keras-using-roi-pooling-992508b6592b)
 
 ###  Youtube videos
-1. [Youtube: Transfer clothes between photos using AI. From a single image!](https://youtu.be/E7fGsSNKMc4)
+1. [Transfer clothes between photos using AI. From a single image!](https://youtu.be/E7fGsSNKMc4)
 2. [Image Based Virtual Try-On Network From Unpaired Data](https://youtu.be/TEXL9gsCksQ)
 3. [Evolution of Object Detection Networks](https://www.youtube.com/playlist?list=PL1GQaVhO4f_jLxOokW7CS5kY_J1t1T17S&fbclid=IwAR24y7lUTMKxp8Kz0q0Ot3MopHPjZ1KGHl0wmTuue7bEElBk9D8drtXwjS4)
 4. [U-net for image segmentation](https://www.youtube.com/playlist?list=PLZsOBAyNTZwbR08R959iCvYT3qzhxvGOE)
