@@ -1,4 +1,10 @@
+deploy/server/model/grapy/data/models/CIHP_trained.pth
+deploy/server/model/openpose/model_pose/body_pose_model.pth
+deploy/server/model/virtuon/PreTrainedModels/GMM/PreTrainedGMM.pth
+deploy/server/model/virtuon/PreTrainedModels/TOM/PreTrainedTOM.pth
+.vscode
 Model/grapy/data/models/CIHP_trained.pth
 Model/openpose/model_pose/body_pose_model.pth
 Model/virtuon/PreTrainedModels/GMM/PreTrainedGMM.pth
 Model/virtuon/PreTrainedModels/TOM/PreTrainedTOM.pth
+
