@@ -5,8 +5,10 @@ from django.template import Template
 from tryon.models import Tryon
 from tryon.forms import TryonForm
 import os
+from os import path
 import sys
 sys.path.append(os.path.abspath('model'))
+sys.path.append(os.path.abspath('media'))
 from virtuon import virtuon
 from clear import clear
 from pairs import pairs
@@ -37,8 +39,10 @@ class TryonPredict(ListView):
     template = "predict.html"
 
     def get(self, request):
-        pairs()
-        virtuon()
+        if path.isfile("media/output/d0.jpg") is not True:        
+            pairs()
+            virtuon()
+
         output = ("output/d0.jpg")
         ctx = {"output": output}
 
