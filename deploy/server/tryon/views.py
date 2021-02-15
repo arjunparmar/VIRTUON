@@ -31,7 +31,7 @@ class TryonView(CreateView):
             ctx = {'form': form}
             return render(request, self.template, ctx)
         form.save()
-        return render(request, self.template)
+        return redirect('tryon:predict')
 
 class TryonPredict(ListView):
     template = "predict.html"
