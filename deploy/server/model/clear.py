@@ -18,7 +18,19 @@ def clear():
 
     try:
         shutil.rmtree('./media/image')
+        # shutil.rmtree('./media/cloth')
+        # shutil.rmtree('./media/output')
+    except:
+        pass
+    try:
+        # shutil.rmtree('./media/image')
         shutil.rmtree('./media/cloth')
+        # shutil.rmtree('./media/output')
+    except:
+        pass
+    try:
+        # shutil.rmtree('./media/image')
+        # shutil.rmtree('./media/cloth')
         shutil.rmtree('./media/output')
     except:
         pass

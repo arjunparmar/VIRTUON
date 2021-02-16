@@ -1,4 +1,6 @@
 import cv2 as cv
+import torch
+import torchvision.transforms as transforms
 import os
 def image_resize():
 	base_dir_1 = os.path.abspath('./model/input/test/test/image')
