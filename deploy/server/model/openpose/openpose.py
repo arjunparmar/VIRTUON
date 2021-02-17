@@ -14,7 +14,10 @@ from time import sleep
 import matplotlib.pyplot as plt
 
 base_dir = os.path.abspath('./model/input/test/test')
-
+if not os.path.exists(os.path.join(base_dir, 'image')):
+    				os.makedirs(os.path.join(base_dir, 'image'))
+if not os.path.exists(os.path.join(base_dir, 'pose')):
+    				os.makedirs(os.path.join(base_dir, 'pose'))
 IMG_DIR = os.path.join(base_dir, 'image')
 
 

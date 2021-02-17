@@ -225,6 +225,11 @@ def gpm_segment(txt_file = './model/input/test/test_pairs.txt', classes = 20, hi
 
 	net.eval()
 
+	if not os.path.exists(output_path + '/cloth-mask/'):
+    				os.makedirs(output_path + '/cloth-mask/')
+	if not os.path.exists(output_path + '/image-mask/'):
+    				os.makedirs(output_path + '/image-mask/')
+
 	with torch.no_grad():
 		for ii, large_sample_batched in enumerate(zip(*testloader_list, *testloader_flip_list)):
 			# print(ii)
@@ -283,11 +288,12 @@ def gpm_segment(txt_file = './model/input/test/test_pairs.txt', classes = 20, hi
 				parsing_im = Image.fromarray(vis_res[0])
 				parsing_im.save(output_path + vis_dir + '{}.png'.format(img_list[ii][:-1]))
 				cv2.imwrite(output_path + mat_dir + '{}.png'.format(img_list[ii][:-1]), results[0,:,:])
+				
 				cv2.imwrite(output_path + '/image-mask/' + '{}.png'.format(img_list[ii][:-1]), image_mask)
 			else:
 				cloth_mask = results[0, :, :].copy()
 				cloth_mask[cloth_mask > 0] = 255
-
+				
 				cv2.imwrite(output_path + '/cloth-mask/' + '{}.jpg'.format(img_list[ii][:-1]), cloth_mask)
 
 		# total_iou += utils.get_iou(predictions, labels)

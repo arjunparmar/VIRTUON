@@ -42,8 +42,9 @@ class TryonPredict(ListView):
         if path.isfile("media/output/d0.jpg") is not True:        
             pairs()
             virtuon()
-
+        cloth = ("cloth/c0.jpg")
+        pose = ("image/d0.jpg")
         output = ("output/d0.jpg")
-        ctx = {"output": output}
+        ctx = {"output": output, "cloth": cloth, "pose": pose}
 
         return render(request, self.template, ctx)
