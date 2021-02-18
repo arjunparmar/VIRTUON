@@ -203,6 +203,8 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
     result_dir = dir(save_dir, 'result-dir')
 
     overlayed_TPS_dir = dir(save_dir, 'overlayed-TPS')
+    
+    pose_vis = dir(os.path.abspath('media'), 'pose-vis')
 
     # warped_grid_dir = dir(save_dir, 'warped_grid')
 
@@ -212,7 +214,7 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
         c_names = inputs['c_name']
         im_names = inputs['im_name']
         im = inputs['image'].cuda()
-        # im_pose = inputs['pose_image'].cuda()
+        im_pose = inputs['pose_image'].cuda()
         # im_h = inputs['head'].cuda()
         # shape = inputs['shape'].cuda()
         agnostic = inputs['agnostic'].cuda()
@@ -240,6 +242,7 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
                     0.8, im_names, result_dir)
         # save_images(warped_grid, im_names, warped_grid_dir)
         save_images(overlay, im_names, overlayed_TPS_dir)
+        save_images(im_pose, im_names, pose_vis)
 
         # if (step + 1) % 100 == 0:
         #     #     board_add_images(board, 'combine', visuals, step+1)

@@ -217,7 +217,7 @@ def gpm_segment(txt_file = './model/input/test/test_pairs.txt', classes = 20, hi
 	if not os.path.exists(output_path + mat_dir):
 		os.makedirs(output_path + mat_dir)
 
-	start_time = timeit.default_timer()
+	# start_time = timeit.default_timer()
 	# One testing epoch
 	total_iou = 0.0
 
@@ -292,13 +292,17 @@ def gpm_segment(txt_file = './model/input/test/test_pairs.txt', classes = 20, hi
 				cv2.imwrite(output_path + '/image-mask/' + '{}.png'.format(img_list[ii][:-1]), image_mask)
 			else:
 				cloth_mask = results[0, :, :].copy()
-				cloth_mask[cloth_mask > 0] = 255
+				print(cloth_mask.shape, "Cloth Mask Size")
+				cloth_mask[cloth_mask == 5] = 255
+				cloth_mask[cloth_mask == 6] = 255
+				cloth_mask[cloth_mask == 7] = 255
+				cloth_mask[cloth_mask != 255] = 0
 				
 				cv2.imwrite(output_path + '/cloth-mask/' + '{}.jpg'.format(img_list[ii][:-1]), cloth_mask)
 
 		# total_iou += utils.get_iou(predictions, labels)
-	end_time = timeit.default_timer()
-	print('time use for '+ str(ii) + ' is :' + str(end_time - start_time))
+	# end_time = timeit.default_timer()
+	# print('time use for '+ str(ii) + ' is :' + str(end_time - start_time))
 
 	# Eval
 	# pred_path = output_path + mat_dir
