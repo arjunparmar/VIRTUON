@@ -9,9 +9,7 @@ def image_resize():
 	# print(base_dir)
 	image_list = os.listdir(base_dir_1)
 	cloth_list = os.listdir(base_dir_2)
-	transformation = transforms.Compose([transforms.ToTensor(), 
-					     transforms.Resize((256,192)),
-					     transforms.ToPILImage()])
+	transformation = transforms.Compose([transforms.Resize((256,192), interpolation = Image.BICUBIC)])
 	
 	for i in image_list:
 		temp = Image.open(os.path.join(base_dir_1, i))

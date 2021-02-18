@@ -292,13 +292,21 @@ def gpm_segment(txt_file = './model/input/test/test_pairs.txt', classes = 20, hi
 				cv2.imwrite(output_path + '/image-mask/' + '{}.png'.format(img_list[ii][:-1]), image_mask)
 			else:
 				cloth_mask = results[0, :, :].copy()
-				print(cloth_mask.shape, "Cloth Mask Size")
+
 				cloth_mask[cloth_mask == 5] = 255
 				cloth_mask[cloth_mask == 6] = 255
 				cloth_mask[cloth_mask == 7] = 255
 				cloth_mask[cloth_mask != 255] = 0
-				
+				# cloth_mask_1 = (cloth_mask == 255).astype(int).reshape(256,192,1)
+				# cloth_mask_1 = np.concatenate([cloth_mask_1, cloth_mask_1, cloth_mask_1], axis = -1)
+				# print(cloth_mask_1.shape, "Cloth Mask Size")
+				cloth_orig = cv2.imread(output_path + '/cloth/' + '{}.jpg'.format(img_list[ii][:-1]))
+				# cloth_orig = cloth_orig*(cloth_mask_1)
+				cloth_orig[cloth_mask == 0] = 255
+
+				cv2.imwrite(output_path + '/cloth/' + '{}.jpg'.format(img_list[ii][:-1]), cloth_orig)
 				cv2.imwrite(output_path + '/cloth-mask/' + '{}.jpg'.format(img_list[ii][:-1]), cloth_mask)
+				
 
 		# total_iou += utils.get_iou(predictions, labels)
 	# end_time = timeit.default_timer()
