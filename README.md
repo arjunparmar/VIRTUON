@@ -64,3 +64,30 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 [Google Drive link]()
 
 ### Project Report
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0001.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0002.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0003.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0004.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0005.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0006.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0007.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0008.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0009.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0010.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0011.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0012.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0013.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0014.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0015.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0016.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0017.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0018.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0019.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0020.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0021.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0022.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0023.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0024.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0025.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0026.jpg)<br/>
+![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0027.jpg)<br/>
