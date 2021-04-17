@@ -63,7 +63,4 @@ and Shape Estimation](https://virtualhumans.mpi-inf.mpg.de/papers/omran2018NBF/o
 ## Dataset 
 [Google Drive link]()
 
-### Timeline
-Till Now- We have completed the image segmentation, pose detection part.<br /> 
-Till 3 jan- We would complete our project implementation.<br />
-Till 10 jan- We would complete Deployment part of our project.
+### Project Report
