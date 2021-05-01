@@ -1,0 +1,30 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtuon</title>
+
+</head>
+
+<body>
+
+    <h1> Welcome to the Virtual Tryon Network!! </h1>
+    <p>
+    <form action="" method="post" id="upload_form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
+        <input type="submit" value="Cancel" onclick="window.location.href='{% url 'tryon:home' %}'; return false;">
+    </form>
+    </p>
+    
+
+
+</body>
+
+</html>
