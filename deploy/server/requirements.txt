@@ -1,0 +1,34 @@
+asgiref 
+certifi==2020.12.5
+cycler==0.10.0
+#dataclasses==0.7
+decorator 
+Django 
+django-crispy-forms==1.11.0
+joblib 
+kiwisolver 
+matplotlib 
+# mkl-fft==1.2.0
+# mkl-random==1.1.1
+# mkl-service==2.3.0
+networkx 
+numpy   
+olefile==0.46
+pandas 
+Pillow 
+protobuf==3.14.0
+# psycopg2 
+pyparsing 
+python-dateutil 
+pytz 
+scikit-learn
+scipy
+six 
+sqlparse 
+threadpoolctl 
+torch==1.7.1
+# torchaudio==0.7.0a0+a853dff
+torchvision==0.8.2
+tornado 
+tqdm 
+typing-extensions 
