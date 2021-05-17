@@ -7,7 +7,7 @@
 *.pot
 *.pyc
 __pycache__/
-model/input/test/test/*
+model/input/*
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

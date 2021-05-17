@@ -15,8 +15,8 @@ class Migration(migrations.Migration):
             name='Tryon',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pose', models.ImageField(upload_to='model/input/test/test/image')),
-                ('cloth', models.ImageField(upload_to='model/input/test/test/cloth')),
+                ('pose', models.ImageField(upload_to='model/input/image')),
+                ('cloth', models.ImageField(upload_to='model/input/cloth')),
             ],
         ),
     ]

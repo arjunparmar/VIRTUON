@@ -1,7 +1,7 @@
 import cv2 as cv
 import os
 def image_resize():
-	base_dir = os.path.abspath('input/test/test/image')
+	base_dir = os.path.abspath('input/image')
 	# print(base_dir)
 	image_list = os.listdir(base_dir)
 	for i in image_list:

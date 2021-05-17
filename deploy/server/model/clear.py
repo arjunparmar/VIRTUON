@@ -4,18 +4,18 @@ import glob
 import shutil
 
 def clear():
-    img_mask = glob.glob(os.path.abspath('model/input/test/test/image-mask/*'))
-    cloth_mask = glob.glob(os.path.abspath('model/input/test/test/cloth-mask/*'))
-    img_parse = glob.glob(os.path.abspath('model/input/test/test/image-parse/*'))
-    img_parse_new = glob.glob(os.path.abspath('model/input/test/test/image-parse-new/*'))
-    overlay = glob.glob(os.path.abspath('model/input/test/test/overlayed-TPS/*'))
-    pose = glob.glob(os.path.abspath('model/input/test/test/pose/*'))
-    gmm_result = glob.glob(os.path.abspath('model/input/test/test/result-dir/*'))
-    warp_cloth = glob.glob(os.path.abspath('model/input/test/test/warp-cloth/*'))
-    warp_mask = glob.glob(os.path.abspath('model/input/test/test/warp-mask/*'))
+    img_mask = glob.glob(os.path.abspath('model/input/image-mask/*'))
+    cloth_mask = glob.glob(os.path.abspath('model/input/cloth-mask/*'))
+    img_parse = glob.glob(os.path.abspath('model/input/image-parse/*'))
+    img_parse_new = glob.glob(os.path.abspath('model/input/image-parse-new/*'))
+    overlay = glob.glob(os.path.abspath('model/input/overlayed-TPS/*'))
+    pose = glob.glob(os.path.abspath('model/input/pose/*'))
+    gmm_result = glob.glob(os.path.abspath('model/input/result-dir/*'))
+    warp_cloth = glob.glob(os.path.abspath('model/input/warp-cloth/*'))
+    warp_mask = glob.glob(os.path.abspath('model/input/warp-mask/*'))
 
-    input_image = glob.glob(os.path.abspath('model/input/test/test/image/*'))
-    input_cloth = glob.glob(os.path.abspath('model/input/test/test/cloth/*'))
+    input_image = glob.glob(os.path.abspath('model/input/image/*'))
+    input_cloth = glob.glob(os.path.abspath('model/input/cloth/*'))
 
     try:
         shutil.rmtree('./media/image')

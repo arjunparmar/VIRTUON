@@ -2,15 +2,15 @@ import os
 import glob
 import shutil
 
-img_mask = glob.glob(os.path.abspath('input/test/test/image-mask/*'))
-cloth_mask = glob.glob(os.path.abspath('input/test/test/cloth-mask/*'))
-img_parse = glob.glob(os.path.abspath('input/test/test/image-parse/*'))
-img_parse_new = glob.glob(os.path.abspath('input/test/test/image-parse-new/*'))
-overlay = glob.glob(os.path.abspath('input/test/test/overlayed-TPS/*'))
-pose = glob.glob(os.path.abspath('input/test/test/pose/*'))
-gmm_result = glob.glob(os.path.abspath('input/test/test/result-dir/*'))
-warp_cloth = glob.glob(os.path.abspath('input/test/test/warp-cloth/*'))
-warp_mask = glob.glob(os.path.abspath('input/test/test/warp-mask/*'))
+img_mask = glob.glob(os.path.abspath('input/image-mask/*'))
+cloth_mask = glob.glob(os.path.abspath('input/cloth-mask/*'))
+img_parse = glob.glob(os.path.abspath('input/image-parse/*'))
+img_parse_new = glob.glob(os.path.abspath('input/image-parse-new/*'))
+overlay = glob.glob(os.path.abspath('input/overlayed-TPS/*'))
+pose = glob.glob(os.path.abspath('input/pose/*'))
+gmm_result = glob.glob(os.path.abspath('input/result-dir/*'))
+warp_cloth = glob.glob(os.path.abspath('input/warp-cloth/*'))
+warp_mask = glob.glob(os.path.abspath('input/warp-mask/*'))
 
 shutil.rmtree('./output')
 

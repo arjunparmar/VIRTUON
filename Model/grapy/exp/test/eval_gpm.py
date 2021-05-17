@@ -133,7 +133,7 @@ def decode_labels(mask, num_images=1, num_classes=20):
 # 	return opts
 
 
-def gpm_segment(txt_file = './input/test/test_pairs.txt', classes = 20, hidden_graph_layers=256, resume_model = './grapy/data/models/CIHP_trained.pth', dataset = 'cihp', batch = 1, output_path = './input/test/test/', cloth = False):
+def gpm_segment(txt_file = './input/test_pairs.txt', classes = 20, hidden_graph_layers=256, resume_model = './grapy/data/models/CIHP_trained.pth', dataset = 'cihp', batch = 1, output_path = './input/', cloth = False):
 
 	if not cloth:
 		img_list = pd.read_csv(txt_file, header = None, sep = " ").iloc[:,0].apply(lambda x: x[:-3]).to_list()

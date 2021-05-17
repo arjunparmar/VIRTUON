@@ -4,11 +4,11 @@ import numpy as np
 import pandas as pd
 import os
 
-img_dir = os.path.abspath('input/test/test/image')
-cloth_dir = os.path.abspath('input/test/test/cloth')
+img_dir = os.path.abspath('input/image')
+cloth_dir = os.path.abspath('input/cloth')
 output_dir = os.path.abspath('output/try-on')
 
-pairs = pd.read_csv(os.path.abspath('input/test/test_pairs.txt'), delimiter=" ", header=None).to_numpy()
+pairs = pd.read_csv(os.path.abspath('input/test_pairs.txt'), delimiter=" ", header=None).to_numpy()
 for num in range(0, 4):
     img_name = pairs[num, 0]
     cloth_name = pairs[num, 1]

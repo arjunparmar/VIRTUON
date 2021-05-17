@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 from time import sleep
 import matplotlib.pyplot as plt
 
-base_dir = os.path.abspath('./model/input/test/test')
+base_dir = os.path.abspath('./model/input')
 if not os.path.exists(os.path.join(base_dir, 'image')):
     				os.makedirs(os.path.join(base_dir, 'image'))
 if not os.path.exists(os.path.join(base_dir, 'pose')):

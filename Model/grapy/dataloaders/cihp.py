@@ -45,14 +45,14 @@ class VOCSegmentation(Dataset):
 
         # _splits_dir = os.path.join(self._base_dir, 'lists')
         if (not cloth):
-            self.im_ids = pd.read_csv('./input/test/test_pairs.txt', sep = " ", header = None, ).iloc[:,0].to_list()
+            self.im_ids = pd.read_csv('./input/test_pairs.txt', sep = " ", header = None, ).iloc[:,0].to_list()
             self.im_ids = [x[:-4] for x in self.im_ids]
-            self.images = pd.read_csv('./input/test/test_pairs.txt', sep = " ", header = None, ).iloc[:,0].to_list()
+            self.images = pd.read_csv('./input/test_pairs.txt', sep = " ", header = None, ).iloc[:,0].to_list()
             self.images = [os.path.join(self._image_dir, x ) for x in self.images]
         else:
-            self.im_ids = pd.read_csv('./input/test/test_pairs.txt', sep=" ", header=None, ).iloc[:, 1].to_list()
+            self.im_ids = pd.read_csv('./input/test_pairs.txt', sep=" ", header=None, ).iloc[:, 1].to_list()
             self.im_ids = [x[:-4] for x in self.im_ids]
-            self.images = pd.read_csv('./input/test/test_pairs.txt', sep=" ", header=None, ).iloc[:, 1].to_list()
+            self.images = pd.read_csv('./input/test_pairs.txt', sep=" ", header=None, ).iloc[:, 1].to_list()
             self.images = [os.path.join(self._image_dir, x) for x in self.images]
         # self.categories = []
         # self.flip_categories = []

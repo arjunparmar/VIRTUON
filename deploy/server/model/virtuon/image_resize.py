@@ -4,8 +4,8 @@ import torch
 import torchvision.transforms as transforms
 import os
 def image_resize():
-	base_dir_1 = os.path.abspath('./model/input/test/test/image')
-	base_dir_2 = os.path.abspath('./model/input/test/test/cloth')
+	base_dir_1 = os.path.abspath('./model/input/image')
+	base_dir_2 = os.path.abspath('./model/input/cloth')
 	# print(base_dir)
 	image_list = os.listdir(base_dir_1)
 	cloth_list = os.listdir(base_dir_2)

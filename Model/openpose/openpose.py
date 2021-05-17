@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 from time import sleep
 import matplotlib.pyplot as plt
 
-base_dir = os.path.abspath('input/test/test')
+base_dir = os.path.abspath('input')
 
 IMG_DIR = os.path.join(base_dir, 'image')
 

@@ -8,7 +8,7 @@ import json
 
 
 class CPDataset(data.Dataset):
-    def __init__(self, stage='GMM', all_root=osp.abspath(''), data_path="input/test", mode="test", radius=5, img_height=256,
+    def __init__(self, stage='GMM', all_root=osp.abspath(''), data_path="input/", mode="test", radius=5, img_height=256,
                  img_width=192):
         super(CPDataset, self).__init__()
 

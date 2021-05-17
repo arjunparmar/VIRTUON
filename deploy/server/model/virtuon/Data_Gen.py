@@ -8,7 +8,7 @@ import json
 
 
 class CPDataset(data.Dataset):
-    def __init__(self, stage='GMM', all_root=osp.abspath(''), data_path="./model/input/test", mode="test", radius=5, img_height=256,
+    def __init__(self, stage='GMM', all_root=osp.abspath(''), data_path="./model/input/", mode="test", radius=5, img_height=256,
                  img_width=192):
         super(CPDataset, self).__init__()
 
@@ -28,7 +28,7 @@ class CPDataset(data.Dataset):
 
         self.radius = radius
 
-        self.data_path = osp.join(all_root, data_path, mode)
+        self.data_path = osp.join(all_root, data_path)
 
         self.transform = transforms.Compose([
             transforms.ToTensor(),

@@ -184,7 +184,7 @@ def train_GMM(model, train_loader, board, lr=1e-4, keep_step=100000, decay_step=
 
 
 def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('virtuon/PreTrainedModels'), name="GMM",
-             model_name="PreTrainedGMM", result_dir=os.path.abspath('input/test/test')):
+             model_name="PreTrainedGMM", result_dir=os.path.abspath('input')):
     model_path = osp.join(checkpoint_path, name, model_name + ".pth")
     load_checkpoint(model, model_path)
 

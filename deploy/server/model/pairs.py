@@ -3,7 +3,7 @@ from shutil import copy2
 
 def pairs():
     base_dir_1 = os.path.abspath('media')
-    base_dir_2 = os.path.abspath('model/input/test/test/')
+    base_dir_2 = os.path.abspath('model/input/')
     if not os.path.exists(base_dir_2):
     	os.makedirs(base_dir_2)
     img_dir_1 = os.path.join(base_dir_1, 'image')
