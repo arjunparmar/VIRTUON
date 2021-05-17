@@ -61,6 +61,6 @@ def openpose():
         joints_json = {"version": 1.0, "people": people}
         with open(json_name, 'w') as joint_file:
             json.dump(joints_json, joint_file)
-            
+
 if __name__ == '__main__':
     openpose()

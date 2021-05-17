@@ -87,18 +87,10 @@ def eval_with_numpy(pred_path, gt_path, classes, txt_file, dataset='cihp'):
         except:
             print(file_name,flush=True)
             raise RuntimeError('no predict/gt image.')
-            # gt_pic = np.array(Image.open(gt_path + file_name))
-            # output_list.append(torch.from_numpy(gt_pic))
-            # label_list.append(torch.from_numpy(gt_pic))
 
     print("trying to get IOU")
 
     test_human.get_iou_from_list_cat_iou(output_list, label_list, n_cls=classes, dataset=dataset)
-
-
-    # print('Validation:')
-    # print('MIoU: %f\n' % miou)
-
 
 if __name__ == '__main__':
     opts = get_parser()

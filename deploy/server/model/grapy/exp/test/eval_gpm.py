@@ -104,35 +104,6 @@ def decode_labels(mask, num_images=1, num_classes=20):
 	  outputs[i] = np.array(img)
 	return outputs
 
-# def get_parser():
-# 	'''argparse begin'''
-# 	parser = argparse.ArgumentParser()
-# 	LookupChoices = type('', (argparse.Action,), dict(__call__=lambda a, p, n, v, o: setattr(n, a.dest, a.choices[v])))
-#
-# 	parser.add_argument('--epochs', default=1, type=int)
-# 	parser.add_argument('--batch', default=16, type=int)
-# 	parser.add_argument('--lr', default=1e-7, type=float)
-# 	parser.add_argument('--numworker', default=12, type=int)
-# 	parser.add_argument('--step', default=30, type=int)
-# 	# parser.add_argument('--loadmodel',default=None,type=str)
-# 	parser.add_argument('--classes', default=7, type=int)
-# 	parser.add_argument('--testepoch', default=10, type=int)
-# 	parser.add_argument('--loadmodel', default='', type=str)
-# 	parser.add_argument('--txt_file', default='', type=str)
-# 	parser.add_argument('--hidden_layers', default=128, type=int)
-# 	parser.add_argument('--gpus', default=4, type=int)
-# 	parser.add_argument('--output_path', default='./results/', type=str)
-# 	parser.add_argument('--gt_path', default='./results/', type=str)
-#
-# 	parser.add_argument('--resume_model', default='', type=str)
-#
-# 	parser.add_argument('--hidden_graph_layers', default=256, type=int)
-# 	parser.add_argument('--dataset', default='cihp', type=str)
-#
-# 	opts = parser.parse_args()
-# 	return opts
-
-
 def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_graph_layers=256, resume_model = './model/grapy/data/models/CIHP_trained.pth', dataset = 'cihp', batch = 1, output_path = './model/input/', cloth = False):
 
 	if not cloth:
@@ -288,7 +259,7 @@ def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_
 				parsing_im = Image.fromarray(vis_res[0])
 				parsing_im.save(output_path + vis_dir + '{}.png'.format(img_list[ii][:-1]))
 				cv2.imwrite(output_path + mat_dir + '{}.png'.format(img_list[ii][:-1]), results[0,:,:])
-				
+
 				cv2.imwrite(output_path + '/image-mask/' + '{}.png'.format(img_list[ii][:-1]), image_mask)
 			else:
 				cloth_mask = results[0, :, :].copy()
@@ -306,7 +277,7 @@ def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_
 
 				cv2.imwrite(output_path + '/cloth/' + '{}.jpg'.format(img_list[ii][:-1]), cloth_orig)
 				cv2.imwrite(output_path + '/cloth-mask/' + '{}.jpg'.format(img_list[ii][:-1]), cloth_mask)
-				
+
 
 		# total_iou += utils.get_iou(predictions, labels)
 	# end_time = timeit.default_timer()
@@ -318,8 +289,4 @@ def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_
 
 
 if __name__ == '__main__':
-	# opts = get_parser()
 	gpm_segment()
-	# pred_path = output_path + '/cihp_output/'
-	# pred_path = '/project/RDS-FEI-human_parsing-RW/Graphonomy/result/dlab_syn_new/cihp_output/'
-	# eval_with_numpy(pred_path=pred_path, gt_path=gt_path,classes=classes, txt_file=txt_file, dataset='cihp')

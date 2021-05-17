@@ -13,7 +13,7 @@ def pairs():
 
     if not os.path.exists(img_dir_2):
     	os.makedirs(img_dir_2)
-    
+
     if not os.path.exists(cloth_dir_2):
         os.makedirs(cloth_dir_2)
 
