@@ -209,7 +209,7 @@ if __name__ == '__main__':
     voc_train = VOCSegmentation(split='train',
                                 transform=composed_transforms_tr)
 
-    dataloader = DataLoader(voc_train, batch_size=5, shuffle=True, num_workers=1)
+    dataloader = DataLoader(voc_train, batch_size=5, shuffle=True, num_workers=1, pin_memory=False)
 
     for ii, sample in enumerate(dataloader):
         if ii >10:

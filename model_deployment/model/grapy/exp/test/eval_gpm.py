@@ -25,7 +25,7 @@ import torch.nn.functional as F
 from test_from_disk import eval_, eval_with_numpy
 
 
-gpu_id = 1
+gpu_id = -1
 
 label_colours = [(0,0,0)
 				, (128,0,0), (255,0,0), (0,85,0), (170,0,51), (255,85,0), (0,0,85), (0,119,221), (85,85,0), (0,85,85), (85,51,0), (52,86,128), (0,128,0)
@@ -117,7 +117,7 @@ def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_
 		net.cuda()
 
 	if not resume_model == '':
-		x = torch.load(resume_model)
+		x = torch.load(resume_model, map_location=torch.device('cpu'))
 		net.load_state_dict(x)
 
 		print('resume model:', resume_model)
@@ -175,8 +175,8 @@ def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_
 		voc_val = val(split='val', transform=composed_transforms_ts, cloth = cloth)
 		voc_val_f = val_flip(split='val', transform=composed_transforms_ts_flip, cloth = cloth)
 
-		testloader = DataLoader(voc_val, batch_size=batch, shuffle=False, num_workers=4)
-		testloader_flip = DataLoader(voc_val_f, batch_size=batch, shuffle=False, num_workers=4)
+		testloader = DataLoader(voc_val, batch_size=batch, shuffle=False, num_workers=4, pin_memory=False)
+		testloader_flip = DataLoader(voc_val_f, batch_size=batch, shuffle=False, num_workers=4, pin_memory=False)
 
 		testloader_list.append(copy.deepcopy(testloader))
 		testloader_flip_list.append(copy.deepcopy(testloader_flip))

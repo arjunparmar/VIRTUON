@@ -119,7 +119,7 @@ class UnetSkipConnectionBlock(nn.Module):
 
 def train_tom(train_loader, model, board, lr=0.0001, betas=(0.5, 0.999), keepstep=1e5, decaystep=1e5, display_count=100,
               save_count=1000, name='TOM', checkpoint_dir=""):
-    model.cuda()
+    # model.cuda()
     model.train()
 
     # criterion
@@ -138,15 +138,15 @@ def train_tom(train_loader, model, board, lr=0.0001, betas=(0.5, 0.999), keepste
         iter_start_time = time.time()
         inputs = train_loader.next_batch()
 
-        im = inputs['image'].cuda()
+        im = inputs['image']
         im_pose = inputs['pose_image']
         im_h = inputs['head']
         shape = inputs['shape']
 
-        agnostic = inputs['agnostic'].cuda()
-        c = inputs['cloth'].cuda()
-        cm = inputs['cloth_mask'].cuda()
-        pcm = inputs['parse_cloth_mask'].cuda()
+        agnostic = inputs['agnostic']
+        c = inputs['cloth']
+        cm = inputs['cloth_mask']
+        pcm = inputs['parse_cloth_mask']
 
         # outputs = model(torch.cat([agnostic, c], 1))  # CP-VTON
         outputs = model(torch.cat([agnostic, c, cm], 1))  # CP-VTON+
@@ -193,7 +193,7 @@ def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/Pre
     model_path = os.path.join(checkpoint, name, model_name + ".pth")
     load_checkpoint(model, model_path)
 
-    model.cuda()
+    # model.cuda()
     model.eval()
 
     base_name = os.path.basename(checkpoint)
@@ -225,14 +225,14 @@ def test_tom(test_loader, model, checkpoint=os.path.abspath('./model/virtuon/Pre
         # iter_start_time = time.time()
 
         im_names = inputs['im_name']
-        # im = inputs['image'].cuda()
+        # im = inputs['image']
         im_pose = inputs['pose_image']
         im_h = inputs['head']
         shape = inputs['shape']
 
-        agnostic = inputs['agnostic'].cuda()
-        c = inputs['cloth'].cuda()
-        cm = inputs['cloth_mask'].cuda()
+        agnostic = inputs['agnostic']
+        c = inputs['cloth']
+        cm = inputs['cloth_mask']
 
         # outputs = model(torch.cat([agnostic, c], 1))  # CP-VTON
         outputs = model(torch.cat([agnostic, c, cm], 1))  # CP-VTON+

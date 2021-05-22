@@ -29,7 +29,7 @@ from dataloaders import custom_transforms as tr
 #
 import argparse
 
-gpu_id = 0
+gpu_id = -1
 
 nEpochs = 100  # Number of epochs for training
 resume_epoch = 0  # Default is 0, change if want to resume
@@ -134,7 +134,7 @@ def validation(net_, testloader, testloader_flip, epoch, writer, criterion, clas
 		inputs, labels = Variable(inputs, requires_grad=False), Variable(labels)
 
 		with torch.no_grad():
-			if gpu_id >= 0:
+			if gpu_id > 0:
 				inputs, labels, labels_single = inputs.cuda(), labels.cuda(), labels_single.cuda()
 			outputs, outputs_aux = net_.forward(inputs, training=False)
 
@@ -279,9 +279,9 @@ def main(opts):
 		print('we are not resuming from any model')
 
 	trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=8,
-							 drop_last=True)
-	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3)
-	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3)
+							 drop_last=True, pin_memory=False)
+	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=False)
+	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=False)
 
 	num_img_tr = len(trainloader)
 	num_img_ts = len(testloader)

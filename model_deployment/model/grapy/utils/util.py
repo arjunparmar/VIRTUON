@@ -155,7 +155,7 @@ def cross_entropy2d(logit, target, ignore_index=255, weight=None, size_average=T
     if weight is None:
         criterion = nn.CrossEntropyLoss(weight=weight, ignore_index=ignore_index,size_average=size_average)
     else:
-        criterion = nn.CrossEntropyLoss(weight=torch.from_numpy(np.array(weight)).float().cuda(), ignore_index=ignore_index, size_average=size_average)
+        criterion = nn.CrossEntropyLoss(weight=torch.from_numpy(np.array(weight)).float(), ignore_index=ignore_index, size_average=size_average)
     loss = criterion(logit, target.long())
 
     return loss
@@ -167,7 +167,7 @@ def cross_entropy2d_dataparallel(logit, target, ignore_index=255, weight=None, s
     if weight is None:
         criterion = nn.DataParallel(nn.CrossEntropyLoss(weight=weight, ignore_index=ignore_index,size_average=size_average))
     else:
-        criterion = nn.DataParallel(nn.CrossEntropyLoss(weight=torch.from_numpy(np.array(weight)).float().cuda(), ignore_index=ignore_index, size_average=size_average))
+        criterion = nn.DataParallel(nn.CrossEntropyLoss(weight=torch.from_numpy(np.array(weight)).float(), ignore_index=ignore_index, size_average=size_average))
     loss = criterion(logit, target.long())
 
     return loss.sum()

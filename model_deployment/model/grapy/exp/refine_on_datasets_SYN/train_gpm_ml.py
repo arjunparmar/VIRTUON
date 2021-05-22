@@ -30,7 +30,7 @@ from dataloaders import custom_transforms as tr
 import argparse
 from utils import sampler as sam
 
-gpu_id = 0
+gpu_id = -1
 
 nEpochs = 100  # Number of epochs for training
 resume_epoch = 0  # Default is 0, change if want to resume
@@ -254,7 +254,7 @@ def main(opts):
 
 		ss = sam.Sampler_uni(num_cihp, num_pascal, num_atr, opts.batch)
 
-		trainloader = DataLoader(all_train, batch_size=p['trainBatch'], shuffle=False, num_workers=18, sampler=ss, drop_last=True)
+		trainloader = DataLoader(all_train, batch_size=p['trainBatch'], shuffle=False, num_workers=18, sampler=ss, drop_last=True, pin_memory=False)
 
 	elif opts.train_mode == 'cihp_pascal_atr_1_1_1':
 		all_train = cihp_pascal_atr.VOCSegmentation(split='train', transform=composed_transforms_tr, flip=True)
@@ -265,14 +265,14 @@ def main(opts):
 
 		ss_uni = sam.Sampler_uni(num_cihp, num_pascal, num_atr, opts.batch, balance_id=1)
 
-		trainloader = DataLoader(all_train, batch_size=p['trainBatch'], shuffle=False, num_workers=1, sampler=ss_uni, drop_last=True)
+		trainloader = DataLoader(all_train, batch_size=p['trainBatch'], shuffle=False, num_workers=1, sampler=ss_uni, drop_last=True, pin_memory=False)
 
 	elif opts.train_mode == 'cihp':
 		voc_train = cihp.VOCSegmentation(split='train', transform=composed_transforms_tr, flip=True)
 		voc_val = cihp.VOCSegmentation(split='val', transform=composed_transforms_ts)
 		voc_val_flip = cihp.VOCSegmentation(split='val', transform=composed_transforms_ts_flip)
 
-		trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=18, drop_last=True)
+		trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=18, drop_last=True, pin_memory=False)
 
 	elif opts.train_mode == 'pascal':
 
@@ -281,7 +281,7 @@ def main(opts):
 		voc_val = pascal.VOCSegmentation(split='val', transform=composed_transforms_ts)
 		voc_val_flip = pascal.VOCSegmentation(split='val', transform=composed_transforms_ts_flip)
 
-		trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=18, drop_last=True)
+		trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=18, drop_last=True, pin_memory=False)
 
 	elif opts.train_mode == 'atr':
 
@@ -290,7 +290,7 @@ def main(opts):
 		voc_val = atr.VOCSegmentation(split='val', transform=composed_transforms_ts)
 		voc_val_flip = atr.VOCSegmentation(split='val', transform=composed_transforms_ts_flip)
 
-		trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=18, drop_last=True)
+		trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=18, drop_last=True, pin_memory=False)
 
 	else:
 		raise NotImplementedError
@@ -311,8 +311,8 @@ def main(opts):
 		print('we are not resuming from any model')
 
 	# We only validate on pascal dataset to save time
-	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3)
-	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3)
+	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=False)
+	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=False)
 
 	num_img_tr = len(trainloader)
 	num_img_ts = len(testloader)
