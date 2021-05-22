@@ -433,9 +433,9 @@ a img.aligncenter {
   opacity: 1;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xclip 
+xclip
 
 -------------------------------- */
 .cd-headline.clip span {
@@ -609,7 +609,7 @@ xclip
 	display: inline-block;
 }
 
-.sim-btn{	
+.sim-btn{
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
@@ -742,7 +742,7 @@ xclip
 .services-inner-box:hover p{
 	color: #ffffff;
 }
- 
+
 
 .btn-ber{
 	margin-top: 30px;
@@ -1543,7 +1543,6 @@ hr.invis1 {
     width: 100%;
     height: 100%;
     position: relative;
-    background: url("uploads/code.jpg") no-repeat;
 }
 
 .design-wrapper {
@@ -1564,7 +1563,6 @@ hr.invis1 {
     position: relative;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    background: url("uploads/design.jpg") no-repeat;
 }
 
 .filter-button-group{
@@ -1577,7 +1575,7 @@ hr.invis1 {
 .filter-button-group button.active{
 	background: #28a9e2;
 	color: #fff;
-	box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2);	
+	box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2);
 	border-radius: 100px 100px 0px 100px;
 }
 
@@ -1724,7 +1722,7 @@ hr.invis1 {
     overflow: hidden;
     transition: all 0.5s ease 0s;
 }
-.our-team:hover .pic{    
+.our-team:hover .pic{
     border-bottom-color: #1c142b;
     border-radius: 0 50%;
 }
@@ -2273,7 +2271,7 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
+    line-height: 1 !important;
 }
 
 .footer {
@@ -2524,7 +2522,7 @@ select.mobile-device {
     color: #999 !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 .stat-wrap p {
@@ -2533,7 +2531,7 @@ select.mobile-device {
     margin: 0;
     font-weight: 300;
     padding: 4px 0 0;
-    line-height: 1 !important:
+    line-height: 1 !important
 }
 
 #preloader {
@@ -2574,8 +2572,8 @@ select.mobile-device {
 @keyframes rotate {
   0% { border-width: 10px; }
   25% { border-width: 3px; }
-  50% { 
-    transform: rotate(115deg); 
+  50% {
+    transform: rotate(115deg);
     border-width: 10px;
   }
   75% { border-width: 3px;}

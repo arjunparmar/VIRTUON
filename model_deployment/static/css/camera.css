@@ -3,10 +3,10 @@
 *	GENERAL
 *
 **************************/
-.camera_wrap img, 
+.camera_wrap img,
 .camera_wrap ol, .camera_wrap ul, .camera_wrap li,
 .camera_wrap table, .camera_wrap tbody, .camera_wrap tfoot, .camera_wrap thead, .camera_wrap tr, .camera_wrap th, .camera_wrap td
-.camera_thumbs_wrap a, .camera_thumbs_wrap img, 
+.camera_thumbs_wrap a, .camera_thumbs_wrap img,
 .camera_thumbs_wrap ol, .camera_thumbs_wrap ul, .camera_thumbs_wrap li,
 .camera_thumbs_wrap table, .camera_thumbs_wrap tbody, .camera_thumbs_wrap tfoot, .camera_thumbs_wrap thead, .camera_thumbs_wrap tr, .camera_thumbs_wrap th, .camera_thumbs_wrap td {
 	background: none;
@@ -97,14 +97,11 @@
 	z-index: 2;
 }
 .camera_target_content .camera_link {
-    background: url(../images/blank.gif);
 	display: block;
 	height: 100%;
 	text-decoration: none;
 }
 .camera_loader {
-    background: #fff url(../images/camera-loader.gif) no-repeat center;
-	background: rgba(255, 255, 255, 0.9) url(../images/camera-loader.gif) no-repeat center;
 	border: 1px solid #ffffff;
 	-webkit-border-radius: 18px;
 	-moz-border-radius: 18px;
@@ -173,7 +170,6 @@
 	z-index: 10;
 }
 .camera_prevThumbs div {
-	background: url(../images/camera_skins.png) no-repeat -160px 0;
 	display: block;
 	height: 40px;
 	margin-top: -20px;
@@ -192,7 +188,6 @@
 	z-index: 10;
 }
 .camera_nextThumbs div {
-	background: url(../images/camera_skins.png) no-repeat -190px 0;
 	display: block;
 	height: 40px;
 	margin-top: -20px;
@@ -292,7 +287,6 @@
 	left: 0;
 }
 .camera_prev > span {
-	background: url(../images/camera_skins.png) no-repeat 0 0;
 	display: block;
 	height: 40px;
 	width: 40px;
@@ -301,7 +295,6 @@
 	right: 0;
 }
 .camera_next > span {
-	background: url(../images/camera_skins.png) no-repeat -40px 0;
 	display: block;
 	height: 40px;
 	width: 40px;
@@ -310,12 +303,10 @@
 	right: 41px;
 }
 .camera_commands > .camera_play {
-	background: url(../images/camera_skins.png) no-repeat -80px 0;
 	height: 40px;
 	width: 40px;
 }
 .camera_commands > .camera_stop {
-	background: url(../images/camera_skins.png) no-repeat -120px 0;
 	display: block;
 	height: 40px;
 	width: 40px;
@@ -393,36 +384,6 @@
 *	COLORS & SKINS
 *
 **************************/
-.pattern_1 .camera_overlayer {
-	background: url(../images/patterns/overlay1.png) repeat;
-}
-.pattern_2 .camera_overlayer {
-	background: url(../images/patterns/overlay2.png) repeat;
-}
-.pattern_3 .camera_overlayer {
-	background: url(../images/patterns/overlay3.png) repeat;
-}
-.pattern_4 .camera_overlayer {
-	background: url(../images/patterns/overlay4.png) repeat;
-}
-.pattern_5 .camera_overlayer {
-	background: url(../images/patterns/overlay5.png) repeat;
-}
-.pattern_6 .camera_overlayer {
-	background: url(../images/patterns/overlay6.png) repeat;
-}
-.pattern_7 .camera_overlayer {
-	background: url(../images/patterns/overlay7.png) repeat;
-}
-.pattern_8 .camera_overlayer {
-	background: url(../images/patterns/overlay8.png) repeat;
-}
-.pattern_9 .camera_overlayer {
-	background: url(../images/patterns/overlay9.png) repeat;
-}
-.pattern_10 .camera_overlayer {
-	background: url(../images/patterns/overlay10.png) repeat;
-}
 .camera_caption {
 	color: #fff;
 }
