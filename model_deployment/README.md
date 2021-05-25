@@ -19,7 +19,7 @@
  ```
     pip3 install virtualenv 
     virtualenv venv
-    source C:\> venv\Scripts\activate.bat
+    C:\> venv\Scripts\activate.bat
  ```
  
  #### 4.3 Setup virtual environment in Windows in PowerShell
@@ -27,7 +27,7 @@
  ```
     pip3 install virtualenv 
     virtualenv venv
-    source PS C:\> venv\Scripts\Activate.ps1
+    PS C:\> venv\Scripts\Activate.ps1
  ```
  For more detials about Virtual Enviroments in Python checkout [this.](https://docs.python.org/3/library/venv.html)
  
