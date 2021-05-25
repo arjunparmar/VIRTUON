@@ -17,7 +17,7 @@
 #### 4.2 Setup virtual environment in Windows in CMD
  - Run the following commands in cmd.exe
  ```
-    pip3 install virtualenv 
+    pip3 -m install virtualenv 
     virtualenv venv
     venv\Scripts\activate.bat
  ```
@@ -25,10 +25,14 @@
  #### 4.3 Setup virtual environment in Windows in PowerShell
   - Run the following commands in PowerShell.exe
  ```
-    pip3 install virtualenv 
+    pip3 -m install virtualenv 
     virtualenv venv
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     venv\Scripts\Activate.ps1
  ```
+ 
+ #### 4.4 
+ 
  For more detials about Virtual Enviroments in Python checkout [this.](https://docs.python.org/3/library/venv.html)
  
 #### 5. Install the dependencies
