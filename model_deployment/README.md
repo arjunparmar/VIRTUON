@@ -1,7 +1,8 @@
 ## Step to run this project:
 
 > NOTE: To run this project you will need Graphics Card (GPU).
-> To run on CPU please checkout here.
+> To run on CPU please checkout here.</br>
+> Also Note this commands are for Ubuntu only.
 
 #### 1. Clone this repo or download the zip file.
 #### 2. Ensure you have Python3 and pip already installed on your system.
