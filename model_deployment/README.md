@@ -31,8 +31,7 @@
     venv\Scripts\Activate.ps1
  ```
  
- #### 4.4 
- 
+ > Note : To deactivate the Virtual Enviorment use `deactivate` command.</br>
  For more detials about Virtual Enviroments in Python checkout [this.](https://docs.python.org/3/library/venv.html)
  
 #### 5. Install the dependencies
