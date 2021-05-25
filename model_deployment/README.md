@@ -18,19 +18,20 @@
  - Run the following commands in cmd.exe
  ```
     python3 -m pip3 install virtualenv 
-    virtualenv venv
+    pip3 -m virtualenv venv
     venv\Scripts\activate.bat
  ```
  
  #### 4.3 Setup virtual environment in Windows in PowerShell
   - Run the following commands in PowerShell.exe
+ > Note: By default, external script execution is disabled in Powershell.</br> For more details refer [here](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.1).
+
  ```
     python3 -m pip3 install virtualenv 
-    virtualenv venv
+    pip3 -m virtualenv venv
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     venv\Scripts\Activate.ps1
  ```
- 
  > Note : To deactivate the Virtual Enviorment use `deactivate` command.</br>
  For more detials about Virtual Enviroments in Python checkout [this.](https://docs.python.org/3/library/venv.html)
  
