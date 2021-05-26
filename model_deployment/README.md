@@ -1,3 +1,15 @@
+# VIRTUON (Virtual Try On Network)
+
+#### The objective is to transfer garments across images of people with arbitrary body pose, shape and clothing. </br> Garment transfer is a challenging task that requires
+ - disentangling the features of the clothing from the body pose and shape.
+ - realistic synthesis of the garment texture on the new body.
+
+
+![imgonline-com-ua-twotoone-nHcqAwB6EpgjBS](https://user-images.githubusercontent.com/72185267/107857221-12b31800-6e53-11eb-9642-af38591a0338.jpg)
+
+## Project Report
+You can Checkout project report's pdf [here](../Virtuon.pdf)
+
 ## Step to run this project:
 
 - <b>[METHOD 1: Setting up Environment](#method-1)</b>
