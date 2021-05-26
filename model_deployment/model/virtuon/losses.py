@@ -1,6 +1,11 @@
 import torch
 import torch.nn as nn
 
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
 
 class DT(nn.Module):
     def __init__(self):
@@ -57,7 +62,7 @@ class VGGLoss(nn.Module):
     def __init__(self, layids=None):
         super(VGGLoss, self).__init__()
         self.vgg = Vgg19()
-        self.vgg.cuda()
+        self.vgg.to(device)
         self.criterion = nn.L1Loss()
         self.weights = [1.0 / 32, 1.0 / 16, 1.0 / 8, 1.0 / 4, 1.0]
         self.layids = layids

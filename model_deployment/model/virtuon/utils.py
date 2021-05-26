@@ -5,6 +5,12 @@ from PIL import Image
 import torch.nn as nn
 import numpy as np
 
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
+
 def dir(path, name):
     name = osp.join(path, name)
     if not osp.exists(name):
@@ -16,14 +22,14 @@ def save_checkpoint(model, save_path):
         os.makedirs(os.path.dirname(save_path))
 
     torch.save(model.cpu().state_dict(), save_path)
-    model.cuda()
+    model.to(device)
 
 
 def load_checkpoint(model, checkpoint_path):
     if not os.path.exists(checkpoint_path):
         return
     model.load_state_dict(torch.load(checkpoint_path))
-    model.cuda()
+    model.to(device)
 
 def tensor_for_board(img_tensor):
     # map into [0,1]
@@ -100,8 +106,8 @@ class TpsGridGen(nn.Module):
         self.grid_X = torch.FloatTensor(self.grid_X).unsqueeze(0).unsqueeze(3)
         self.grid_Y = torch.FloatTensor(self.grid_Y).unsqueeze(0).unsqueeze(3)
         if use_cuda:
-            self.grid_X = self.grid_X.cuda()
-            self.grid_Y = self.grid_Y.cuda()
+            self.grid_X = self.grid_X.to(device)
+            self.grid_Y = self.grid_Y.to(device)
 
         # initialize regular grid for control points P_i
         if use_regular_grid:
@@ -120,10 +126,10 @@ class TpsGridGen(nn.Module):
             self.P_Y = P_Y.unsqueeze(2).unsqueeze(
                 3).unsqueeze(4).transpose(0, 4)
             if use_cuda:
-                self.P_X = self.P_X.cuda()
-                self.P_Y = self.P_Y.cuda()
-                self.P_X_base = self.P_X_base.cuda()
-                self.P_Y_base = self.P_Y_base.cuda()
+                self.P_X = self.P_X.to(device)
+                self.P_Y = self.P_Y.to(device)
+                self.P_X_base = self.P_X_base.to(device)
+                self.P_Y_base = self.P_Y_base.to(device)
 
     def forward(self, theta):
         warped_grid = self.apply_transformation(
@@ -149,7 +155,7 @@ class TpsGridGen(nn.Module):
             (P.transpose(0, 1), Z), 1)), 0)
         Li = torch.inverse(L)
         if self.use_cuda:
-            Li = Li.cuda()
+            Li = Li.to(device)
         return Li
 
     def apply_transformation(self, theta, points):

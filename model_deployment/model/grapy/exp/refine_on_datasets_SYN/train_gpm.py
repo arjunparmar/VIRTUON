@@ -29,7 +29,11 @@ from dataloaders import custom_transforms as tr
 #
 import argparse
 
-gpu_id = 0
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
 
 nEpochs = 100  # Number of epochs for training
 resume_epoch = 0  # Default is 0, change if want to resume
@@ -134,8 +138,7 @@ def validation(net_, testloader, testloader_flip, epoch, writer, criterion, clas
 		inputs, labels = Variable(inputs, requires_grad=False), Variable(labels)
 
 		with torch.no_grad():
-			if gpu_id >= 0:
-				inputs, labels, labels_single = inputs.cuda(), labels.cuda(), labels_single.cuda()
+			inputs, labels, labels_single = inputs.to(device), labels.to(device), labels_single.to(device)
 			outputs, outputs_aux = net_.forward(inputs, training=False)
 
 		if dataset == 'cihp':
@@ -279,17 +282,17 @@ def main(opts):
 		print('we are not resuming from any model')
 
 	trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=8,
-							 drop_last=True)
-	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3)
-	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3)
+							 drop_last=True, pin_memory=gpu_available)
+	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=gpu_available)
+	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=gpu_available)
 
 	num_img_tr = len(trainloader)
 	num_img_ts = len(testloader)
 
 	# Set the category relations
 	net_.set_category_list(cate_lis1, cate_lis2)
-	if gpu_id >= 0:
-		net_.cuda()
+
+	net_.to(device)
 
 	running_loss_tr = 0.0
 	running_loss_ts = 0.0
@@ -323,8 +326,7 @@ def main(opts):
 			inputs, labels = Variable(inputs, requires_grad=True), Variable(labels)
 			global_step += inputs.data.shape[0]
 
-			if gpu_id >= 0:
-				inputs, labels = inputs.cuda(), labels.cuda()
+			inputs, labels = inputs.to(device), labels.to(device)
 
 			outputs, outputs_aux = net.forward(inputs)
 
