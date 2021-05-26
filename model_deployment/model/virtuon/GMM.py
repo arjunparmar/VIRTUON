@@ -7,6 +7,11 @@ from losses import GicLoss
 import os
 import os.path as osp
 
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
 
 class FeatureL2Norm(torch.nn.Module):
     def __init__(self):
@@ -85,9 +90,9 @@ class FeatureRegression(nn.Module):
         self.linear = nn.Linear(64 * 4 * 3, output_dim)
         self.tanh = nn.Tanh()
         if use_cuda:
-            self.conv.cuda()
-            self.tanh.cuda()
-            self.linear.cuda()
+            self.conv.to(device)
+            self.tanh.to(device)
+            self.linear.to(device)
 
     def forward(self, x):
         x = self.conv(x)
@@ -113,7 +118,7 @@ class GMM(nn.Module):
         featureB = self.extractionB(inputB)
         featureA = self.l2norm(featureA)
         featureB = self.l2norm(featureB)
-        correlation = self.correlation(featureA.cuda(), featureB.cuda())
+        correlation = self.correlation(featureA.to(device), featureB.to(device))
 
         theta = self.regression(correlation)
         grid = self.gridGen(theta)
@@ -122,7 +127,7 @@ class GMM(nn.Module):
 
 def train_GMM(model, train_loader, board, lr=1e-4, keep_step=100000, decay_step=100000, save_count=500,
               display_count=100, checkpoint_dir="/content/checkpoint", name='GMM'):
-    model.cuda()
+    model.to(device)
     model.train()
 
     L1loss = nn.L1Loss()
@@ -138,16 +143,16 @@ def train_GMM(model, train_loader, board, lr=1e-4, keep_step=100000, decay_step=
         iter_start_time = time.time()
         inputs = train_loader.next_batch()
 
-        im = inputs['image'].cuda()  # full image of person
-        im_pose = inputs['pose_image'].cuda()  # pose channels
-        im_h = inputs['head'].cuda()  # person head Image
-        shape = inputs['shape'].cuda()  # blurred binary mask of person and
-        agnostic = inputs['agnostic'].cuda()  # person Representation for GMM
-        c = inputs['cloth'].cuda()  # in shop cloths
-        cm = inputs['cloth_mask'].cuda()  # in shop cloth mask
-        im_c = inputs['parse_cloth'].cuda()  # GT for GMM
-        im_g = inputs['grid_image'].cuda()  # grid image for Viz.
-        pcm = inputs['parse_cloth_mask'].cuda()
+        im = inputs['image'].to(device)  # full image of person
+        im_pose = inputs['pose_image'].to(device)  # pose channels
+        im_h = inputs['head'].to(device)  # person head Image
+        shape = inputs['shape'].to(device)  # blurred binary mask of person and
+        agnostic = inputs['agnostic'].to(device)  # person Representation for GMM
+        c = inputs['cloth'].to(device)  # in shop cloths
+        cm = inputs['cloth_mask'].to(device)  # in shop cloth mask
+        im_c = inputs['parse_cloth'].to(device)  # GT for GMM
+        im_g = inputs['grid_image'].to(device)  # grid image for Viz.
+        pcm = inputs['parse_cloth_mask'].to(device)
 
         grid, theta = model(agnostic, cm)
         warped_cloth = F.grid_sample(c, grid, padding_mode='border', align_corners=True)
@@ -188,7 +193,7 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
     model_path = osp.join(checkpoint_path, name, model_name + ".pth")
     load_checkpoint(model, model_path)
 
-    model.cuda()
+    model.to(device)
     model.eval()
 
     save_dir = osp.join(result_dir)
@@ -203,7 +208,7 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
     result_dir = dir(save_dir, 'result-dir')
 
     overlayed_TPS_dir = dir(save_dir, 'overlayed-TPS')
-    
+
     pose_vis = dir(os.path.abspath('media'), 'pose-vis')
 
     # warped_grid_dir = dir(save_dir, 'warped_grid')
@@ -213,15 +218,15 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
 
         c_names = inputs['c_name']
         im_names = inputs['im_name']
-        im = inputs['image'].cuda()
-        im_pose = inputs['pose_image'].cuda()
-        # im_h = inputs['head'].cuda()
-        # shape = inputs['shape'].cuda()
-        agnostic = inputs['agnostic'].cuda()
-        c = inputs['cloth'].cuda()
-        cm = inputs['cloth_mask'].cuda()
-        # im_c = inputs['parse_cloth'].cuda()
-        # im_g = inputs['grid_image'].cuda()
+        im = inputs['image'].to(device)
+        im_pose = inputs['pose_image'].to(device)
+        # im_h = inputs['head'].to(device)
+        # shape = inputs['shape'].to(device)
+        agnostic = inputs['agnostic'].to(device)
+        c = inputs['cloth'].to(device)
+        cm = inputs['cloth_mask'].to(device)
+        # im_c = inputs['parse_cloth'].to(device)
+        # im_g = inputs['grid_image'].to(device)
         shape_ori = inputs['shape_ori']  # original body shape without blurring
 
         grid, theta = model(agnostic, cm)
@@ -238,7 +243,7 @@ def test_GMM(model, test_loader, checkpoint_path=os.path.abspath('model/virtuon/
         # save_images(warped_mask * 2 - 1, c_names, warp_mask_dir)
         save_images(warped_cloth, im_names, warp_cloth_dir)
         save_images(warped_mask * 2 - 1, im_names, warp_mask_dir)
-        save_images(shape_ori.cuda() * 0.2 + warped_cloth *
+        save_images(shape_ori.to(device) * 0.2 + warped_cloth *
                     0.8, im_names, result_dir)
         # save_images(warped_grid, im_names, warped_grid_dir)
         save_images(overlay, im_names, overlayed_TPS_dir)

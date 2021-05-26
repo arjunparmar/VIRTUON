@@ -29,7 +29,11 @@ from dataloaders import custom_transforms as tr
 #
 import argparse
 
-gpu_id = 0
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
 
 nEpochs = 100  # Number of epochs for training
 resume_epoch = 0  # Default is 0, change if want to resume
@@ -123,8 +127,7 @@ def validation(net_, testloader, testloader_flip, epoch, writer, criterion, clas
 		inputs, labels = Variable(inputs, requires_grad=False), Variable(labels)
 
 		with torch.no_grad():
-			if gpu_id >= 0:
-				inputs, labels, labels_single = inputs.cuda(), labels.cuda(), labels_single.cuda()
+			inputs, labels, labels_single = inputs.to(device), labels.to(device), labels_single.to(device)
 			outputs = net_.forward(inputs)
 
 		if dataset == 'cihp':
@@ -257,16 +260,14 @@ def main(opts):
 		print('we are not resuming from any model')
 
 	trainloader = DataLoader(voc_train, batch_size=p['trainBatch'], shuffle=True, num_workers=8,
-							 drop_last=True)
-	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3)
-	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3)
+							 drop_last=True, pin_memory=gpu_available)
+	testloader = DataLoader(voc_val, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=gpu_available)
+	testloader_flip = DataLoader(voc_val_flip, batch_size=testBatch, shuffle=False, num_workers=3, pin_memory=gpu_available)
 
 	num_img_tr = len(trainloader)
 	num_img_ts = len(testloader)
 
-	if gpu_id >= 0:
-		# torch.cuda.set_device(device=gpu_id)
-		net_.cuda()
+	net_.to(device)
 
 	running_loss_tr = 0.0
 	running_loss_ts = 0.0
@@ -299,8 +300,7 @@ def main(opts):
 			inputs, labels = Variable(inputs, requires_grad=True), Variable(labels)
 			global_step += inputs.data.shape[0]
 
-			if gpu_id >= 0:
-				inputs, labels = inputs.cuda(), labels.cuda()
+			inputs, labels = inputs.to(device), labels.to(device)
 
 			outputs = net.forward(inputs)
 
@@ -349,7 +349,8 @@ def main(opts):
 			cur_miou = validation(net_, testloader=testloader, testloader_flip=testloader_flip, classes=opts.classes,
 								epoch=epoch, writer=writer, criterion=criterion, dataset=opts.dataset)
 
-		torch.cuda.empty_cache()
+		if gpu_available:
+			torch.cuda.empty_cache()
 
 		if (epoch % snapshot) == snapshot - 1:
 			torch.save(net_.state_dict(), os.path.join(save_dir, 'models', modelName + '_current' + '.pth'))
@@ -362,7 +363,8 @@ def main(opts):
 				print("Save model at {}\n".format(
 					os.path.join(save_dir, 'models', modelName + '_epoch-' + str(epoch) + '.pth as our best model')))
 
-		torch.cuda.empty_cache()
+		if gpu_available:
+			torch.cuda.empty_cache()
 
 
 if __name__ == '__main__':

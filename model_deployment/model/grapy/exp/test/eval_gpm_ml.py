@@ -22,7 +22,11 @@ import torch.nn.functional as F
 from test_from_disk import eval_, eval_with_numpy
 
 
-gpu_id = 1
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
 
 label_colours = [(0,0,0)
 				, (128,0,0), (255,0,0), (0,85,0), (170,0,51), (255,85,0), (0,0,85), (0,119,221), (85,85,0), (0,85,85), (85,51,0), (52,86,128), (0,128,0)
@@ -137,8 +141,7 @@ def main(opts):
 
 	net = grapy_net.GrapyMutualLearning(os=16, hidden_layers=opts.hidden_graph_layers)
 
-	if gpu_id >= 0:
-		net.cuda()
+	net_.to(device)
 
 	if not opts.resume_model == '':
 		x = torch.load(opts.resume_model)
@@ -197,8 +200,8 @@ def main(opts):
 		voc_val = val(split='val', transform=composed_transforms_ts)
 		voc_val_f = val_flip(split='val', transform=composed_transforms_ts_flip)
 
-		testloader = DataLoader(voc_val, batch_size=1, shuffle=False, num_workers=4)
-		testloader_flip = DataLoader(voc_val_f, batch_size=1, shuffle=False, num_workers=4)
+		testloader = DataLoader(voc_val, batch_size=1, shuffle=False, num_workers=4, pin_memory=gpu_available)
+		testloader_flip = DataLoader(voc_val_f, batch_size=1, shuffle=False, num_workers=4, pin_memory=gpu_available)
 
 		testloader_list.append(copy.deepcopy(testloader))
 		testloader_flip_list.append(copy.deepcopy(testloader_flip))
@@ -244,8 +247,7 @@ def main(opts):
 				inputs, labels = Variable(inputs, requires_grad=False), Variable(labels)
 
 				with torch.no_grad():
-					if gpu_id >= 0:
-						inputs, labels, labels_single = inputs.cuda(), labels.cuda(), labels_single.cuda()
+					inputs, labels, labels_single = inputs.to(device), labels.to(device), labels_single.to(device)
 					# outputs = net.forward(inputs)
 					# pdb.set_trace()
 					outputs, outputs_aux = net.forward((inputs, num_dataset_lbl), training=False)

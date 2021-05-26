@@ -2,6 +2,7 @@ from __future__ import print_function, division
 import os
 from PIL import Image
 import numpy as np
+import torch
 from torch.utils.data import Dataset
 from .mypath_cihp import Path
 from .mypath_pascal import Path as PP
@@ -9,6 +10,12 @@ from .mypath_atr import Path as PA
 import random
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+gpu_available = torch.cuda.is_available()
+if gpu_available:
+	device = torch.device("cuda")
+else:
+	device = torch.device("cpu")
 
 class VOCSegmentation(Dataset):
     """
@@ -209,7 +216,7 @@ if __name__ == '__main__':
     voc_train = VOCSegmentation(split='train',
                                 transform=composed_transforms_tr)
 
-    dataloader = DataLoader(voc_train, batch_size=5, shuffle=True, num_workers=1)
+    dataloader = DataLoader(voc_train, batch_size=5, shuffle=True, num_workers=1, pin_memory=gpu_available)
 
     for ii, sample in enumerate(dataloader):
         if ii >10:
