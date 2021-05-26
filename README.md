@@ -15,10 +15,10 @@ To run model on your local machine click [here](model_deployment/README.md)
 You can check about researches we have done [here](research_development/README.md)
 
 ## Dataset we used 
-[Google Drive link.](https://1drv.ms/u/s!Ai8t8GAHdzVUiQQYX0azYhqIDPP6?e=4cpFTI)
+[Drive link](https://1drv.ms/u/s!Ai8t8GAHdzVUiQQYX0azYhqIDPP6?e=4cpFTI)
 
 ## Project Report
-You can Checkout project report's pdf [here](https://github.com/arjunparmar/VIRTUON/blob/refactor/Virtuon.pdf)
+You can Checkout project report's pdf [here](Virtuon.pdf)
 
 ![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0001.jpg)<br/>
 ![](https://github.com/arjunparmar/VIRTUON/blob/main/report_data/0002.jpg)<br/>
