@@ -185,6 +185,7 @@ def gpm_segment(txt_file = './model/input/test_pairs.txt', classes = 20, hidden_
 		testloader_flip_list.append(copy.deepcopy(testloader_flip))
 
 	print("Eval Network")
+	print("GPU Available:",gpu_available)
 
 	if not os.path.exists(output_path + vis_dir):
 		os.makedirs(output_path + vis_dir)
